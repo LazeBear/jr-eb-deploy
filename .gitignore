@@ -1,6 +1,5 @@
 node_modules/
 logs/
-env.json
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
