@@ -1,5 +1,5 @@
-const Course = require('../models/course');
-const Student = require('../models/student');
+const Course = require("../models/course");
+const Student = require("../models/student");
 
 async function addCourse(req, res) {
   const { name, code, description } = req.body;
@@ -17,18 +17,18 @@ async function getCourse(req, res) {
   const { id: code } = req.params;
 
   const course = await Course.findById(code).populate(
-    'students',
-    'firstName lastName'
+    "students",
+    "firstName lastName"
   );
 
   if (!course) {
-    return res.status(404).json('course not found');
+    return res.status(404).json("course not found");
   }
   return res.json(course);
 }
 
-async function getAllCourses(req, res) {
-  const courses = await Course.find();
+function getAllCourses(req, res) {
+  const courses = Course.find();
   return res.json(courses);
 }
 
@@ -44,7 +44,7 @@ async function updateCourse(req, res) {
     }
   );
   if (!newCourse) {
-    return res.status(404).json('course not found');
+    return res.status(404).json("course not found");
   }
   return res.json(newCourse);
 }
@@ -53,7 +53,7 @@ async function deleteCourse(req, res) {
   const { id: code } = req.params;
   const course = await Course.findByIdAndDelete(code);
   if (!course) {
-    return res.status(404).json('course not found');
+    return res.status(404).json("course not found");
   }
   await Student.updateMany(
     {

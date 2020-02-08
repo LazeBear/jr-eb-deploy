@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const {
   getAllStudents,
   addStudent,
@@ -7,15 +7,15 @@ const {
   getStudent,
   addCourse,
   deleteCourse
-} = require('../controllers/student');
+} = require("../controllers/student");
 const router = express.Router();
 
-router.get('/', getAllStudents);
-router.get('/:id', getStudent);
-router.post('/', addStudent);
-router.put('/:id', updateStudent);
-router.delete('/:id', deleteStudent);
-router.post('/:id/courses/:code', addCourse);
-router.delete('/:id/courses/:code', deleteCourse);
+router.get("/", getAllStudents);
+router.get("/:id", getStudent);
+router.post("/", addStudent);
+router.put("/:id", updateStudent);
+router.delete("/:id", deleteStudent);
+router.post("/:id/courses/:courseCode", addCourse);
+router.delete("/:id/courses/:courseCode", deleteCourse);
 
 module.exports = router;
