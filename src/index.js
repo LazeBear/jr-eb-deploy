@@ -22,8 +22,15 @@ app.use(express.json());
 app.use('/api', routes);
 app.use(errorHandler);
 
-connectToDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server is listening on PORT: ${PORT}`);
+connectToDB()
+  .then(() => {
+    console.log('DB connected');
+    app.listen(PORT, () => {
+      console.log(`Server is listening on PORT: ${PORT}`);
+    });
+  })
+  .catch(e => {
+    console.log('DB connection failed');
+    console.error(e.message);
+    process.exit(1);
   });
-});
