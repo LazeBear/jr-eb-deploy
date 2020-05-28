@@ -9,6 +9,7 @@ exports.connectToDB = () => {
   mongoose.set('useFindAndModify', false);
   return mongoose.connect(connectionString, {
     useNewUrlParser: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useUnifiedTopology: true
   });
 };
